@@ -9,10 +9,10 @@ describe("Todo Test Suite", () => {
       new Date().setDate(new Date().getDate() - 1)
     ).toLocaleDateString("en-CA");
     let today = new Date().toLocaleDateString("en-CA");
-    add({ title: "Submit assignment", dueDate: yesterday, completed: false });
-    add({ title: "Pay rent", dueDate: yesterday, completed: false });
-    add({ title: "Service Vehicle", dueDate: yesterday, completed: false });
-    add({ title: "File taxes", dueDate: today, completed: false });
+    add({ title: " finishing assingment", dueDate: yesterday, completed: false });
+    add({ title: "Pay school fees", dueDate: yesterday, completed: false });
+    add({ title: "car Service", dueDate: yesterday, completed: false });
+    add({ title: "dancing", dueDate: today, completed: false });
   });
 
   test("Testing Add todo Function", () => {
@@ -20,7 +20,7 @@ describe("Todo Test Suite", () => {
     let tomorrow = new Date(
       new Date().setDate(new Date().getDate() + 1)
     ).toLocaleDateString("en-CA");
-    add({ title: "Pay electric bill", dueDate: tomorrow, completed: false });
+    add({ title: "Pay dish bill", dueDate: tomorrow, completed: false });
     expect(all.length).toBe(todoItemsCount + 1);
   });
 
@@ -33,18 +33,18 @@ describe("Todo Test Suite", () => {
 
   test("Testing retrieval of overdue items", () => {
     expect(overdue().length).toBe(3);
-    expect(overdue()[0].title).toBe("Submit assignment");
-    expect(overdue()[1].title).toBe("Pay rent");
-    expect(overdue()[2].title).toBe("Service Vehicle");
+    expect(overdue()[0].title).toBe("finishing assignment");
+    expect(overdue()[1].title).toBe("Pay school fees");
+    expect(overdue()[2].title).toBe("car service");
   });
 
   test("Testing retrieval of due today Items", () => {
     expect(dueToday().length).toBe(1);
-    expect(dueToday()[0].title).toBe("File taxes");
+    expect(dueToday()[0].title).toBe("dancing");
   });
 
   test("Testing retrieval of due later Items", () => {
     expect(dueLater().length).toBe(1);
-    expect(dueLater()[0].title).toBe("Pay electric bill");
+    expect(dueLater()[0].title).toBe("Pay dish bill");
   });
 });
